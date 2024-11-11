@@ -28,3 +28,6 @@ function App() {
 }
 
 export default App
+
+
+//this file still does not show things on frontend as ur show hardcoded stuff till now.
