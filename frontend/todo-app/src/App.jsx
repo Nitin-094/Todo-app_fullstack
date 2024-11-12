@@ -4,6 +4,7 @@ import {RenderTodos} from "./components/ToDos.jsx"
 import './App.css'
 import { useState } from "react"
 
+
 function App() {
     const [todos,setTodos] = useState([]);
     fetch("http://localhost:3000/todo").then(async (res) => {
@@ -11,18 +12,24 @@ function App() {
       setTodos(data.todos)
     })
 
+    
+
   return (
     <div>
       <CreateTodo></CreateTodo>
       <br></br>
-      <RenderTodos todos={[
+      {/* <RenderTodos todos={[
         {
           title:"abcd",
           description:"abcd",
           completed:false
           }
           ]}
-          ></RenderTodos>
+          ></RenderTodos> */}
+          <RenderTodos todos={todos}></RenderTodos>
+
+
+
     </div>
   )
 }
