@@ -3,17 +3,18 @@ import {CreateTodo} from "./components/CreateTodo.jsx"
 import {RenderTodos} from "./components/ToDos.jsx"
 import './App.css'
 import { useState } from "react"
+import { set } from "mongoose";
 
 
 function App() {
-    const [todos,setTodos] = useState([]);
+    const [todos,setTodos] = useState([]);//i want to append in it my data from backend.
+    //try with axios
     fetch("http://localhost:3000/todo").then(async (res) => {
       const data = await res.json();
       setTodos(data.todos)
     })
 
-    
-
+  
   return (
     <div>
       <CreateTodo></CreateTodo>
@@ -26,9 +27,7 @@ function App() {
           }
           ]}
           ></RenderTodos> */}
-          <RenderTodos todos={todos}></RenderTodos>
-
-
+          <RenderTodos todos={todos} setTodos={setTodos} ></RenderTodos>
 
     </div>
   )

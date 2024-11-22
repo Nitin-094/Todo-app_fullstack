@@ -5,12 +5,16 @@
 import axios from "axios";
 import { useState } from "react";
 
-export  function RenderTodos({todos}){
+export  function RenderTodos({todos,setTodos}){
     // const  a =async(id)=>{
     //    const a = await axios.put("http://localhost:3000/completed",{_id:id});
     //    console.log();  
     // };
-
+    function markTrue(){
+        todos.setTodos({
+            completed: true,
+        })
+    }
 
     return <div>
         {todos.map(function(todo){
@@ -19,7 +23,8 @@ export  function RenderTodos({todos}){
                 <h1>{todo.title}</h1>
                 <h2>{todo.description}</h2>
                 {/* <button onClick={()=>a(todo._id)}>{todo.completed == true ? "completed" : "Mark as completed"}</button> */}
-                <button >{todo.completed == true ? "completed" : "Mark as completed"}</button>
+                <button onClick={markTrue} >{todo.completed == true ? "completed" : "Mark as completed"} </button>
+                {console.log(todo.completed)}
             </div>
         })}
     </div>

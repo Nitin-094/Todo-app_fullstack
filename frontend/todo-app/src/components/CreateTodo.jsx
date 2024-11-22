@@ -51,7 +51,7 @@ export function CreateTodo() {
                             alert("Error adding todo");
                         });
                 }}
-            >
+                >
                 Add a todo
             </button>
         </div>
